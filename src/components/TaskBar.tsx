@@ -15,16 +15,16 @@ interface TaskList {
 export function TaskBar() {
   const [newTask, setNewTask] = useState('');
   const [tasks, setTasks] = useState<TaskList[]>([
-    /* {
+    {
       id: uuidv4(),
       task: 'Integer vel sed fames integer auctor neque turpis turpis semper. Duis vel sed fames integer. natus inventore a ',
-      concluded: false,
+      concluded: true,
     },
     {
       id: uuidv4(),
       task: 'Acordar e fazer o trabalho de casa.',
       concluded: true,
-    }, */
+    },
   ]);
 
   function handleNewTaskChange(event: ChangeEvent<HTMLInputElement>) {
@@ -55,6 +55,8 @@ export function TaskBar() {
 
   const isTaskEmpty = tasks.length === 0;
 
+  const isConcluded = tasks.filter((task) => task.concluded === true);
+
   return (
     <div className={styles.TaskBarContainer}>
       <form onSubmit={handleCreateNewTask} className={styles.newTaskForm}>
@@ -78,7 +80,7 @@ export function TaskBar() {
           Tarefas criadas <span>{tasks.length}</span>
         </div>
         <div className={styles.TaskBarCompleted}>
-          Concluídas <span>0</span>
+          Concluídas <span>{`${isConcluded.length}  de ${tasks.length}`}</span>
         </div>
       </header>
 
@@ -105,14 +107,3 @@ export function TaskBar() {
     </div>
   );
 }
-
-/* tasks.map((task) => (
-  <Tasks
-    key={task.id}
-    task={task.task}
-    concluded={task.concluded}
-    id={task.id}
-    onChangeConcluded={onChangeConcluded}
-    onDeleteTask={onDeleteTask}
-  />
-)) */
