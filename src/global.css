@@ -23,3 +23,17 @@
   padding: 0;
   box-sizing: border-box;
 }
+
+body {
+  background: var(--gray-600);
+  color: var(--gray-100);
+}
+
+body,
+input,
+textarea,
+button {
+  font-family: 'Inter', sans-serif;
+  line-height: 1.375rem;
+  font-size: 1rem;
+}

@@ -1,0 +1,33 @@
+.TasksContainer {
+  width: 100%;
+  background: var(--gray-500);
+  border-radius: 8px;
+  padding: 1rem;
+  margin-bottom: 0.75rem;
+  display: flex;
+  align-items: center;
+}
+
+.TasksContainer form {
+  font-size: 0.875;
+  display: flex;
+  align-items: center;
+}
+
+.TasksContainer form span {
+  color: var(--gray-100);
+  margin: 0 0.75rem;
+}
+
+.TasksContainer button {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  color: var(--gray-300);
+  line-height: 0;
+}
+
+.TasksContainer button:hover {
+  color: var(--red-danger);
+  background: var(--gray-400);
+}

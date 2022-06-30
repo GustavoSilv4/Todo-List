@@ -1,0 +1,87 @@
+.newTaskForm {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: -5.875rem;
+  margin-bottom: 4rem;
+}
+
+.newTaskInput {
+  width: 42rem;
+  background: var(--gray-500);
+  color: var(--gray-100);
+  padding: 1rem;
+  border: none;
+  outline: none;
+  border-radius: 8px;
+}
+
+.newTaskInput:focus {
+  outline: 1px solid var(--purple-light);
+}
+
+.newTaskButton {
+  background: var(--blue-dark);
+  color: var(--gray-100);
+  font-size: 0.875rem;
+  font-weight: bold;
+  border: none;
+  padding: 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.newTaskButton:hover {
+  background: var(--blue-light);
+}
+
+.TaskBarContainer {
+  display: flex;
+  flex-direction: column;
+  justify-items: center;
+  align-items: center;
+  margin-top: 4rem;
+}
+
+.TaskBarHeader {
+  width: 48rem;
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid var(--gray-300);
+}
+
+.TaskBarHeader span {
+  background: var(--gray-400);
+  color: var(--gray-200);
+  font-size: 0.75rem;
+  padding: 0.125rem 0.5rem;
+  border-radius: 9px;
+}
+
+.TaskBarCreated {
+  font-size: 0.875;
+  font-weight: bold;
+  color: var(--blue-light);
+}
+
+.TaskBarCompleted {
+  font-size: 0.875;
+  font-weight: bold;
+  color: var(--purple-light);
+}
+
+.Task {
+  width: 48rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: var(--gray-300);
+
+  margin-top: 1rem;
+}
