@@ -9,7 +9,8 @@
 }
 
 .TasksContainer form {
-  font-size: 0.875;
+  width: 100%;
+  font-size: 0.875rem;
   display: flex;
   align-items: center;
 }
