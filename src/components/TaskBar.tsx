@@ -15,16 +15,16 @@ interface TaskList {
 export function TaskBar() {
   const [newTask, setNewTask] = useState('');
   const [tasks, setTasks] = useState<TaskList[]>([
-    {
-      id: '1',
+    /* {
+      id: uuidv4(),
       task: 'Integer vel sed fames integer auctor neque turpis turpis semper. Duis vel sed fames integer. natus inventore a ',
       concluded: false,
     },
     {
-      id: '2',
+      id: uuidv4(),
       task: 'Acordar e fazer o trabalho de casa.',
-      concluded: false,
-    },
+      concluded: true,
+    }, */
   ]);
 
   function handleNewTaskChange(event: ChangeEvent<HTMLInputElement>) {
@@ -43,6 +43,17 @@ export function TaskBar() {
     setTasks([...tasks, newTaskObj]);
     setNewTask('');
   }
+
+  function onChangeConcluded(id: string) {
+    const taskToChange = tasks.find((task) => task.id === id);
+  }
+
+  function onDeleteTask(id: string) {
+    const deleteTaks = tasks.filter((task) => task.id !== id);
+    setTasks(deleteTaks);
+  }
+
+  const isTaskEmpty = tasks.length === 0;
 
   return (
     <div className={styles.TaskBarContainer}>
@@ -71,19 +82,37 @@ export function TaskBar() {
         </div>
       </header>
 
-      <div className={styles.Task}>
-        {/* <ClipboardText size={56} weight='thin' />
-        <strong>Voce ainda não tem tarefas cadastradas</strong>
-        <p>Crie tarefas e organize seus itens a fazer</p> */}
-        {tasks.map((task) => (
-          <Tasks
-            key={task.id}
-            task={task.task}
-            concluded={task.concluded}
-            id={''}
-          />
-        ))}
-      </div>
+      {isTaskEmpty ? (
+        <div className={styles.TaskEmpty}>
+          <ClipboardText size={56} weight='thin' />
+          <strong>Voce ainda não tem tarefas cadastradas</strong>
+          <p>Crie tarefas e organize seus itens a fazer</p>
+        </div>
+      ) : (
+        <div className={styles.Task}>
+          {tasks.map((task) => (
+            <Tasks
+              key={task.id}
+              task={task.task}
+              concluded={task.concluded}
+              id={task.id}
+              onChangeConcluded={onChangeConcluded}
+              onDeleteTask={onDeleteTask}
+            />
+          ))}
+        </div>
+      )}
     </div>
   );
 }
+
+/* tasks.map((task) => (
+  <Tasks
+    key={task.id}
+    task={task.task}
+    concluded={task.concluded}
+    id={task.id}
+    onChangeConcluded={onChangeConcluded}
+    onDeleteTask={onDeleteTask}
+  />
+)) */

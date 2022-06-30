@@ -76,6 +76,16 @@
   color: var(--purple-light);
 }
 
+.TaskEmpty {
+  width: 48rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: var(--gray-300);
+
+  margin-top: 4rem;
+}
+
 .Task {
   width: 48rem;
   display: flex;

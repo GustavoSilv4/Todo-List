@@ -20,6 +20,10 @@
   margin: 0 0.75rem;
 }
 
+.TasksContainer form s {
+  margin: 0 0.75rem;
+}
+
 .TasksContainer button {
   background: transparent;
   border: none;
