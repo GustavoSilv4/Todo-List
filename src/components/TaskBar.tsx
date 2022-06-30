@@ -41,6 +41,7 @@ export function TaskBar() {
     };
 
     setTasks([...tasks, newTaskObj]);
+    setNewTask('');
   }
 
   return (
@@ -52,6 +53,7 @@ export function TaskBar() {
           placeholder='Adicione uma nova tarefa'
           value={newTask}
           onChange={handleNewTaskChange}
+          required
         />
 
         <button className={styles.newTaskButton} type='submit'>
