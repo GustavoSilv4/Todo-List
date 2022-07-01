@@ -7,6 +7,13 @@
   margin-bottom: 4rem;
 }
 
+@media (max-width: 768px) {
+  .newTaskForm {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
 .newTaskInput {
   width: 42rem;
   background: var(--gray-500);
@@ -15,6 +22,12 @@
   border: none;
   outline: none;
   border-radius: 8px;
+}
+
+@media (max-width: 768px) {
+  .newTaskInput {
+    width: calc(100vw - 1rem);
+  }
 }
 
 .newTaskInput:focus {
@@ -56,6 +69,13 @@
   border-bottom: 1px solid var(--gray-300);
 }
 
+@media (max-width: 768px) {
+  .TaskBarHeader {
+    width: 100vw;
+    padding: 1rem;
+  }
+}
+
 .TaskBarHeader span {
   background: var(--gray-400);
   color: var(--gray-200);
@@ -94,4 +114,10 @@
   color: var(--gray-300);
 
   margin-top: 1rem;
+}
+
+@media (max-width: 768px) {
+  .Task {
+    width: calc(100vw - 1rem);
+  }
 }
