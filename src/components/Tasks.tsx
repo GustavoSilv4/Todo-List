@@ -5,20 +5,20 @@ import { Trash } from 'phosphor-react';
 interface TasksProps {
   id: string;
   task: string;
-  concluded: boolean;
-  onChangeConcluded: (id: string) => void;
+  isComplete: boolean;
+  onChangeComplete: (id: string) => void;
   onDeleteTask: (id: string) => void;
 }
 
 export function Tasks({
   id,
   task,
-  concluded,
-  onChangeConcluded,
+  isComplete,
+  onChangeComplete,
   onDeleteTask,
 }: TasksProps) {
   function onChecked() {
-    onChangeConcluded(id);
+    onChangeComplete(id);
   }
 
   function onDelete() {
@@ -33,7 +33,7 @@ export function Tasks({
           type='checkbox'
           onClick={onChecked}
         />
-        {concluded ? <s>{task}</s> : <span>{task}</span>}
+        {isComplete ? <s>{task}</s> : <span>{task}</span>}
       </form>
       <button onClick={onDelete}>
         <Trash size={20} />

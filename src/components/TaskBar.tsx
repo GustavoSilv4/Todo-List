@@ -9,23 +9,12 @@ import { Tasks } from './Tasks';
 interface TaskList {
   id: string;
   task: string;
-  concluded: boolean;
+  isComplete: boolean;
 }
 
 export function TaskBar() {
   const [newTask, setNewTask] = useState('');
-  const [tasks, setTasks] = useState<TaskList[]>([
-    {
-      id: uuidv4(),
-      task: 'Integer vel sed fames integer auctor neque turpis turpis semper. Duis vel sed fames integer. natus inventore a ',
-      concluded: true,
-    },
-    {
-      id: uuidv4(),
-      task: 'Acordar e fazer o trabalho de casa.',
-      concluded: true,
-    },
-  ]);
+  const [tasks, setTasks] = useState<TaskList[]>([]);
 
   function handleNewTaskChange(event: ChangeEvent<HTMLInputElement>) {
     setNewTask(event.target.value);
@@ -37,15 +26,19 @@ export function TaskBar() {
     const newTaskObj = {
       id: uuidv4(),
       task: newTask,
-      concluded: false,
+      isComplete: false,
     };
 
     setTasks([...tasks, newTaskObj]);
     setNewTask('');
   }
 
-  function onChangeConcluded(id: string) {
-    const taskToChange = tasks.find((task) => task.id === id);
+  function onChangeComplete(id: string) {
+    setTasks((prevTasks) =>
+      prevTasks.map((task) =>
+        task.id === id ? { ...task, isComplete: !task.isComplete } : task
+      )
+    );
   }
 
   function onDeleteTask(id: string) {
@@ -55,7 +48,7 @@ export function TaskBar() {
 
   const isTaskEmpty = tasks.length === 0;
 
-  const isConcluded = tasks.filter((task) => task.concluded === true);
+  const isCompleteTask = tasks.filter((task) => task.isComplete === true);
 
   return (
     <div className={styles.TaskBarContainer}>
@@ -80,7 +73,8 @@ export function TaskBar() {
           Tarefas criadas <span>{tasks.length}</span>
         </div>
         <div className={styles.TaskBarCompleted}>
-          Concluídas <span>{`${isConcluded.length}  de ${tasks.length}`}</span>
+          Concluídas{' '}
+          <span>{`${isCompleteTask.length}  de ${tasks.length}`}</span>
         </div>
       </header>
 
@@ -96,9 +90,9 @@ export function TaskBar() {
             <Tasks
               key={task.id}
               task={task.task}
-              concluded={task.concluded}
+              isComplete={task.isComplete}
               id={task.id}
-              onChangeConcluded={onChangeConcluded}
+              onChangeComplete={onChangeComplete}
               onDeleteTask={onDeleteTask}
             />
           ))}
