@@ -1,6 +1,7 @@
 {
   "compilerOptions": {
     "composite": true,
+    "module": "CommonJS",
     "moduleResolution": "node"
   },
   "include": ["vite.config.ts"]
