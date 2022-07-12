@@ -45,7 +45,7 @@ export function TaskBar() {
 
   function onChangeComplete(id: string) {
     setTasks((prevTasks) =>
-      prevTasks.map((task) =>
+      Object.values(prevTasks).map((task) =>
         task.id === id ? { ...task, isComplete: !task.isComplete } : task
       )
     )
