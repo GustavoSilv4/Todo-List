@@ -52,13 +52,15 @@ export function TaskBar() {
   }
 
   function onDeleteTask(id: string) {
-    const deleteTaks = tasks.filter((task) => task.id !== id)
+    const deleteTaks = Object.values(tasks).filter((task) => task.id !== id)
     setTasks(deleteTaks)
   }
 
   const isTaskEmpty = tasks.length === 0
 
-  const isCompleteTask = tasks.filter((task) => task.isComplete === true)
+  const isCompleteTask = Object.values(tasks).filter(
+    (task) => task.isComplete === true
+  )
 
   return (
     <div className={styles.TaskBarContainer}>
