@@ -52,7 +52,7 @@ export function TaskBar() {
   }
 
   function onDeleteTask(id: string) {
-    const deleteTaks = tasks.filter((task) => task.id !== id)
+    const deleteTaks = Object.values(tasks).filter((task) => task.id !== id)
     setTasks(deleteTaks)
   }
 
