@@ -98,7 +98,7 @@ export function TaskBar() {
         </div>
       ) : (
         <div className={styles.Task}>
-          {tasks.map((task) => (
+          {Object.values(tasks).map((task) => (
             <Tasks
               key={task.id}
               task={task.task}
