@@ -5,7 +5,7 @@ Desafio do ignite RocketSeat para praticar os conceitos do React.
 
 ## Screenshots
 
-![App Screenshot](https://imgur.com/a/mAxMhBQ.png)
+![App Screenshot](https://imgur.com/q5Kchhj.png)
 
 
 ## Stack utilizada
