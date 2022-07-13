@@ -15,17 +15,21 @@ interface TaskList {
 export function TaskBar() {
   const [newTask, setNewTask] = useState('')
 
-  const storedStateAsJSON =
-    JSON.parse(localStorage.getItem('@todolistig:tasks-1.0.0') || '{}') || []
+  const [tasks, setTasks] = useState<TaskList[]>(() => {
+    const storedStateAsJSON =
+      JSON.parse(localStorage.getItem('@todolistig:tasks-1.0.0')!) || []
 
-  const [tasks, setTasks] = useState<TaskList[]>(storedStateAsJSON)
+    return storedStateAsJSON
+  })
 
   function handleNewTaskChange(event: ChangeEvent<HTMLInputElement>) {
     setNewTask(event.target.value)
   }
 
   useEffect(() => {
-    const stateJSON = JSON.stringify(tasks)
+    const saveTasks = [...tasks]
+
+    const stateJSON = JSON.stringify(saveTasks)
 
     localStorage.setItem('@todolistig:tasks-1.0.0', stateJSON)
   }, [tasks])
