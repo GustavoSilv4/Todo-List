@@ -1,13 +1,13 @@
-import styles from './Tasks.module.css';
+import styles from './Tasks.module.css'
 
-import { Trash } from 'phosphor-react';
+import { Trash } from 'phosphor-react'
 
 interface TasksProps {
-  id: string;
-  task: string;
-  isComplete: boolean;
-  onChangeComplete: (id: string) => void;
-  onDeleteTask: (id: string) => void;
+  id: string
+  task: string
+  isComplete: boolean
+  onChangeComplete: (id: string) => void
+  onDeleteTask: (id: string) => void
 }
 
 export function Tasks({
@@ -18,11 +18,11 @@ export function Tasks({
   onDeleteTask,
 }: TasksProps) {
   function onChecked() {
-    onChangeComplete(id);
+    onChangeComplete(id)
   }
 
   function onDelete() {
-    onDeleteTask(id);
+    onDeleteTask(id)
   }
 
   return (
@@ -30,7 +30,8 @@ export function Tasks({
       <form>
         <input
           className={styles.TasksInput}
-          type='checkbox'
+          type="checkbox"
+          defaultChecked={isComplete === true}
           onClick={onChecked}
         />
         {isComplete ? <s>{task}</s> : <span>{task}</span>}
@@ -39,5 +40,5 @@ export function Tasks({
         <Trash size={20} />
       </button>
     </div>
-  );
+  )
 }
