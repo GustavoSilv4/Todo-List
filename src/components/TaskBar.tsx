@@ -45,22 +45,20 @@ export function TaskBar() {
 
   function onChangeComplete(id: string) {
     setTasks((prevTasks) =>
-      Object.values(prevTasks).map((task) =>
+      prevTasks.map((task) =>
         task.id === id ? { ...task, isComplete: !task.isComplete } : task
       )
     )
   }
 
   function onDeleteTask(id: string) {
-    const deleteTaks = Object.values(tasks).filter((task) => task.id !== id)
+    const deleteTaks = tasks.filter((task) => task.id !== id)
     setTasks(deleteTaks)
   }
 
   const isTaskEmpty = tasks.length === 0
 
-  const isCompleteTask = Object.values(tasks).filter(
-    (task) => task.isComplete === true
-  )
+  const isCompleteTask = tasks.filter((task) => task.isComplete === true)
 
   return (
     <div className={styles.TaskBarContainer}>
@@ -98,7 +96,7 @@ export function TaskBar() {
         </div>
       ) : (
         <div className={styles.Task}>
-          {Object.values(tasks).map((task) => (
+          {tasks.map((task) => (
             <Tasks
               key={task.id}
               task={task.task}
