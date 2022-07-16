@@ -30,11 +30,13 @@
   cursor: pointer;
   color: var(--gray-300);
   line-height: 0;
+  padding: 0.2rem;
 }
 
 .TasksContainer button:hover {
   color: var(--red-danger);
   background: var(--gray-400);
+  border-radius: 4px;
 }
 
 .TasksForm > input {
