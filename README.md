@@ -10,9 +10,9 @@ https://todolist.gustavosilv4.com.br/
 
 ![App Screenshot](https://imgur.com/q5Kchhj.png)
 
-![App Screenshot](https://imgur.com/s0tsPp7.png)
+![App Screenshot](https://imgur.com/Y9AfyW1.png)
 
-![App Screenshot](https://imgur.com/fPFQJW2.png)
+![App Screenshot](https://imgur.com/dOA8ioH.png)
 
 
 ## Stack utilizada
