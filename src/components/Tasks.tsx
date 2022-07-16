@@ -27,14 +27,16 @@ export function Tasks({
 
   return (
     <div className={styles.TasksContainer}>
-      <form>
+      <form className={styles.TasksForm}>
         <input
-          className={styles.TasksInput}
           type="checkbox"
+          id={id}
           defaultChecked={isComplete === true}
           onClick={onChecked}
         />
-        {isComplete ? <s>{task}</s> : <span>{task}</span>}
+        <label htmlFor={id}>
+          {isComplete ? <s>{task}</s> : <span>{task}</span>}
+        </label>
       </form>
       <button onClick={onDelete}>
         <Trash size={20} />
